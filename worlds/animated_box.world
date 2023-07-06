@@ -1,0 +1,46 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+   <world name="default">
+      <include>
+         <uri>model://ground_plane</uri>
+      </include>
+      <include>
+         <uri>model://sun</uri>
+      </include>
+      <actor name="animated_box">
+        <link name="box_link">
+          <visual name="visual">
+            <geometry>
+              <sphere>
+                <radius>.2</radius>
+              </sphere>
+            </geometry>
+             <material> <!-- Wheel material -->
+          	<ambient>1 0 0 1</ambient>
+          	<diffuse>1 0 0 1</diffuse>
+          	<specular>0 0 0 0</specular>
+          	<emissive>0 0 0 1</emissive>
+             </material>
+          </visual>
+        </link>
+        <script>
+          <loop>true</loop>
+          <auto_start>true</auto_start>
+          <trajectory id="1" type="ani">
+             <waypoint>
+                <time>0.0</time>
+                <pose>1 -1 0.2 0 0 0</pose>
+             </waypoint>
+             <waypoint>
+                <time>10.0</time>
+                <pose>1 1 0.2 0 0 0</pose>
+             </waypoint>
+             <waypoint>
+                <time>20.0</time>
+                <pose>1 -1 0.2 0 0 0</pose>
+             </waypoint>
+          </trajectory>
+        </script>
+      </actor>
+   </world>
+</sdf>
